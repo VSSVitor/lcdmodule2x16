@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Vitor\Desktop\CODES\lcdmodule2x16\simulation\qsim
+vlcd_example
+Z1 !s100 l=[AMX^4X_7JH_EE`LBAV3
+Z2 IKKMeO@Fdd;0lgmI;jSXK:2
+Z3 V`T<UY6^[OD<iT>2Y`1@n20
+Z4 dC:\Users\Vitor\Desktop\CODES\lcdmodule2x16\simulation\qsim
+Z5 w1540066537
+Z6 8display.vo
+Z7 Fdisplay.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|display.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1540066538.764000
+Z12 !s107 display.vo|
+!s101 -O0
+vlcd_example_vlg_check_tst
+!i10b 1
+!s100 ^GOGz0EYn9=<9Ca:NfN[K2
+I]HPb3z40FQ:NbN3Z:]NAl0
+Z13 V92?UEK0A4E@JS_A`[3`Kg1
+R4
+R5
+Z14 8display.vt
+Z15 Fdisplay.vt
+L0 59
+R8
+r1
+!s85 0
+31
+Z16 !s108 1540066538.894000
+Z17 !s107 display.vt|
+Z18 !s90 -work|work|display.vt|
+!s101 -O0
+R10
+vlcd_example_vlg_sample_tst
+!i10b 1
+Z19 !s100 EiNX=;FO:dgEzl:M1R1Hi2
+Z20 IFjVc_MFdMBDAIMPKYcCPE3
+Z21 VVb29@aR9c;ik1kEkUoBE<2
+R4
+R5
+R14
+R15
+L0 29
+R8
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R10
+vlcd_example_vlg_vec_tst
+!i10b 1
+Z22 !s100 [fOX[EW[DlFH];C17i?5Q3
+Z23 IOAFWJDDdZEPO?SXY1i=W03
+Z24 VCAbPj1`TJ49Ie29ZJd_7D1
+R4
+R5
+R14
+R15
+Z25 L0 455
+R8
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R10

@@ -1,0 +1,42 @@
+# do display.do 
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module lcd_example
+# 
+# Top level modules:
+# 	lcd_example
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module lcd_example_vlg_sample_tst
+# -- Compiling module lcd_example_vlg_check_tst
+# -- Compiling module lcd_example_vlg_vec_tst
+# 
+# Top level modules:
+# 	lcd_example_vlg_vec_tst
+# vsim -L cycloneii_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate -c -t 1ps -novopt work.lcd_example_vlg_vec_tst 
+# Loading work.lcd_example_vlg_vec_tst
+# Loading work.lcd_example
+# Loading cycloneii_ver.cycloneii_lcell_ff
+# Loading cycloneii_ver.cycloneii_lcell_comb
+# Loading cycloneii_ver.cycloneii_io
+# Loading cycloneii_ver.cycloneii_mux21
+# Loading cycloneii_ver.cycloneii_dffe
+# Loading cycloneii_ver.cycloneii_asynch_io
+# Loading cycloneii_ver.cycloneii_clkctrl
+# Loading cycloneii_ver.cycloneii_mux41
+# Loading cycloneii_ver.cycloneii_ena_reg
+# Loading cycloneii_ver.cycloneii_ram_block
+# Loading cycloneii_ver.cycloneii_ram_register
+# Loading cycloneii_ver.cycloneii_ram_pulse_generator
+# Loading work.lcd_example_vlg_sample_tst
+# Loading work.lcd_example_vlg_check_tst
+# Loading cycloneii_ver.CYCLONEII_PRIM_DFFE
+# ERROR! Vector Mismatch for output port lcd_blon :: @time = 1000000.000 ps
+#      Expected value = 0
+#      Real value = 1
+# ERROR! Vector Mismatch for output port lcd_on :: @time = 1000000.000 ps
+#      Expected value = 0
+#      Real value = 1
+#           2 mismatched vectors : Simulation failed !
+# ** Note: $finish    : display.vt(451)
+#    Time: 100 us  Iteration: 0  Instance: /lcd_example_vlg_vec_tst/tb_out

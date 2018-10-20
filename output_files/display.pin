@@ -63,7 +63,7 @@
  -- Pin directions (input, output or bidir) are based on device operating in user mode.
  ---------------------------------------------------------------------------------
 
-Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 CHIP  "display"  ASSIGNED TO AN: EP2C35F672C6
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
@@ -556,7 +556,7 @@ NC                           : N21       :        :                   :         
 VCCIO5                       : N22       : power  :                   : 3.3V    : 5         :                
 RESERVED_INPUT               : N23       :        :                   :         : 5         :                
 RESERVED_INPUT               : N24       :        :                   :         : 5         :                
-GND+                         : N25       :        :                   :         : 5         :                
+reset                        : N25       : input  : 3.3-V LVTTL       :         : 5         : Y              
 GND+                         : N26       :        :                   :         : 5         :                
 GND+                         : P1        :        :                   :         : 1         :                
 GND+                         : P2        :        :                   :         : 1         :                
@@ -713,7 +713,7 @@ GND                          : W22       : gnd    :                   :         
 RESERVED_INPUT               : W23       :        :                   :         : 6         :                
 RESERVED_INPUT               : W24       :        :                   :         : 6         :                
 RESERVED_INPUT               : W25       :        :                   :         : 6         :                
-RESERVED_INPUT               : W26       :        :                   :         : 6         :                
+start                        : W26       : input  : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT               : Y1        :        :                   :         : 1         :                
 NC                           : Y2        :        :                   :         :           :                
 RESERVED_INPUT               : Y3        :        :                   :         : 1         :                

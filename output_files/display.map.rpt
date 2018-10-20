@@ -1,6 +1,6 @@
 Analysis & Synthesis report for display
-Thu Sep  6 19:00:44 2018
-Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Sat Oct 20 20:25:03 2018
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -13,15 +13,18 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |lcd_example|lcd_controller:dut|state
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Port Connectivity Checks: "lcd_controller:dut"
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. State Machine - |lcd_example|lcd_controller:U0|state
+ 11. User-Specified and Inferred Latches
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for ROM:U1|altsyncram:altsyncram_component|altsyncram_3v61:auto_generated
+ 16. Parameter Settings for User Entity Instance: ROM:U1|altsyncram:altsyncram_component
+ 17. altsyncram Parameter Settings by Entity Instance
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
 
 
 
@@ -47,18 +50,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Sep  6 19:00:44 2018           ;
-; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Analysis & Synthesis Status        ; Successful - Sat Oct 20 20:25:03 2018           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; display                                         ;
 ; Top-level Entity Name              ; lcd_example                                     ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 235                                             ;
-;     Total combinational functions  ; 234                                             ;
-;     Dedicated logic registers      ; 60                                              ;
-; Total registers                    ; 60                                              ;
-; Total pins                         ; 14                                              ;
+; Total logic elements               ; 211                                             ;
+;     Total combinational functions  ; 205                                             ;
+;     Dedicated logic registers      ; 63                                              ;
+; Total registers                    ; 63                                              ;
+; Total pins                         ; 16                                              ;
 ; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 0                                               ;
+; Total memory bits                  ; 1,280                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
 ; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
@@ -160,14 +163,27 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                            ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                     ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
-; lcd_controller.vhd               ; yes             ; User VHDL File  ; /home/vitor/Desktop/Sistemas Digitais/display/lcd_controller.vhd ;         ;
-; lcd_example.vhd                  ; yes             ; User VHDL File  ; /home/vitor/Desktop/Sistemas Digitais/display/lcd_example.vhd    ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                    ;
++----------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------+---------+
+; ROM.vhd                          ; yes             ; User Wizard-Generated File       ; C:/Users/Vitor/Desktop/CODES/lcdmodule2x16/ROM.vhd                      ;         ;
+; lcd_controller.vhd               ; yes             ; User VHDL File                   ; C:/Users/Vitor/Desktop/CODES/lcdmodule2x16/lcd_controller.vhd           ;         ;
+; lcd_example.vhd                  ; yes             ; User VHDL File                   ; C:/Users/Vitor/Desktop/CODES/lcdmodule2x16/lcd_example.vhd              ;         ;
+; MIF.mif                          ; yes             ; User Memory Initialization File  ; C:/Users/Vitor/Desktop/CODES/lcdmodule2x16/MIF.mif                      ;         ;
+; contador.vhd                     ; yes             ; User VHDL File                   ; C:/Users/Vitor/Desktop/CODES/lcdmodule2x16/contador.vhd                 ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_3v61.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/Vitor/Desktop/CODES/lcdmodule2x16/db/altsyncram_3v61.tdf       ;         ;
++----------------------------------+-----------------+----------------------------------+-------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -175,45 +191,68 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 235   ;
+; Estimated Total logic elements              ; 211   ;
 ;                                             ;       ;
-; Total combinational functions               ; 234   ;
+; Total combinational functions               ; 205   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 123   ;
-;     -- 3 input functions                    ; 26    ;
-;     -- <=2 input functions                  ; 85    ;
+;     -- 4 input functions                    ; 128   ;
+;     -- 3 input functions                    ; 25    ;
+;     -- <=2 input functions                  ; 52    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 198   ;
+;     -- normal mode                          ; 169   ;
 ;     -- arithmetic mode                      ; 36    ;
 ;                                             ;       ;
-; Total registers                             ; 60    ;
-;     -- Dedicated logic registers            ; 60    ;
+; Total registers                             ; 63    ;
+;     -- Dedicated logic registers            ; 63    ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 14    ;
+; I/O pins                                    ; 16    ;
+; Total memory bits                           ; 1280  ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 60    ;
-; Total fan-out                               ; 889   ;
-; Average fan-out                             ; 2.89  ;
+; Maximum fan-out                             ; 73    ;
+; Total fan-out                               ; 935   ;
+; Average fan-out                             ; 3.18  ;
 +---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                     ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name             ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+--------------+
-; |lcd_example               ; 234 (43)          ; 60 (14)      ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |lcd_example                    ; work         ;
-;    |lcd_controller:dut|    ; 191 (191)         ; 46 (46)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lcd_example|lcd_controller:dut ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                       ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
+; |lcd_example                              ; 205 (0)           ; 63 (0)       ; 1280        ; 0            ; 0       ; 0         ; 16   ; 0            ; |lcd_example                                                                       ; work         ;
+;    |ROM:U1|                               ; 0 (0)             ; 0 (0)        ; 1280        ; 0            ; 0       ; 0         ; 0    ; 0            ; |lcd_example|ROM:U1                                                                ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 1280        ; 0            ; 0       ; 0         ; 0    ; 0            ; |lcd_example|ROM:U1|altsyncram:altsyncram_component                                ; work         ;
+;          |altsyncram_3v61:auto_generated| ; 0 (0)             ; 0 (0)        ; 1280        ; 0            ; 0       ; 0         ; 0    ; 0            ; |lcd_example|ROM:U1|altsyncram:altsyncram_component|altsyncram_3v61:auto_generated ; work         ;
+;    |contador:U2|                          ; 13 (13)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lcd_example|contador:U2                                                           ; work         ;
+;    |lcd_controller:U0|                    ; 192 (192)         ; 48 (48)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lcd_example|lcd_controller:U0                                                     ; work         ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                               ;
++----------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------+
+; Name                                                                             ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF        ;
++----------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------+
+; ROM:U1|altsyncram:altsyncram_component|altsyncram_3v61:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 128          ; 10           ; --           ; --           ; 1280 ; ../MIF.mif ;
++----------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                    ;
++--------+--------------+---------+--------------+--------------+---------------------+----------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance     ; IP Include File                                    ;
++--------+--------------+---------+--------------+--------------+---------------------+----------------------------------------------------+
+; Altera ; ROM: 1-PORT  ; 13.0    ; N/A          ; N/A          ; |lcd_example|ROM:U1 ; C:/Users/Vitor/Desktop/CODES/lcdmodule2x16/ROM.vhd ;
++--------+--------------+---------+--------------+--------------+---------------------+----------------------------------------------------+
 
 
 Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------+
-; State Machine - |lcd_example|lcd_controller:dut|state                           ;
+; State Machine - |lcd_example|lcd_controller:U0|state                            ;
 +------------------+------------+-------------+------------------+----------------+
 ; Name             ; state.send ; state.ready ; state.initialize ; state.power_up ;
 +------------------+------------+-------------+------------------+----------------+
@@ -224,28 +263,15 @@ Encoding Type:  One-Hot
 +------------------+------------+-------------+------------------+----------------+
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; lcd_bus[8]                            ; Merged with lcd_bus[7]                 ;
-; lcd_bus[7]                            ; Stuck at GND due to stuck port data_in ;
-; lcd_bus[9]                            ; Stuck at VCC due to stuck port data_in ;
-; lcd_controller:dut|rw                 ; Stuck at GND due to stuck port data_in ;
-; lcd_controller:dut|lcd_data[7]        ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 5 ;                                        ;
-+---------------------------------------+----------------------------------------+
-
-
 +---------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                       ;
-+---------------+---------------------------+-------------------------------------------------------+
-; Register name ; Reason for Removal        ; Registers Removed due to This Register                ;
-+---------------+---------------------------+-------------------------------------------------------+
-; lcd_bus[7]    ; Stuck at GND              ; lcd_controller:dut|rw, lcd_controller:dut|lcd_data[7] ;
-;               ; due to stuck port data_in ;                                                       ;
-+---------------+---------------------------+-------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; contador:U2|EN                                     ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -253,12 +279,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 60    ;
+; Total registers                              ; 63    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 1     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 7     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 20    ;
+; Number of registers using Clock Enable       ; 24    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -268,29 +294,111 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; lcd_controller:dut|busy                ; 1       ;
-; Total number of inverted registers = 1 ;         ;
+; lcd_controller:U0|busy                 ; 1       ;
+; contador:U2|char[0]                    ; 3       ;
+; Total number of inverted registers = 2 ;         ;
 +----------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
-; 64:1               ; 9 bits    ; 378 LEs       ; 153 LEs              ; 225 LEs                ; Yes        ; |lcd_example|lcd_bus[9]                       ;
-; 14:1               ; 7 bits    ; 63 LEs        ; 49 LEs               ; 14 LEs                 ; Yes        ; |lcd_example|lcd_controller:dut|lcd_data[3]   ;
-; 14:1               ; 31 bits   ; 279 LEs       ; 31 LEs               ; 248 LEs                ; Yes        ; |lcd_example|lcd_controller:dut|clk_count[23] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |lcd_example|lcd_controller:U0|rw           ;
+; 14:1               ; 8 bits    ; 72 LEs        ; 56 LEs               ; 16 LEs                 ; Yes        ; |lcd_example|lcd_controller:U0|lcd_data[5]  ;
+; 14:1               ; 31 bits   ; 279 LEs       ; 31 LEs               ; 248 LEs                ; Yes        ; |lcd_example|lcd_controller:U0|clk_count[3] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
-+------------------------------------------------+
-; Port Connectivity Checks: "lcd_controller:dut" ;
-+---------+-------+----------+-------------------+
-; Port    ; Type  ; Severity ; Details           ;
-+---------+-------+----------+-------------------+
-; reset_n ; Input ; Info     ; Stuck at VCC      ;
-+---------+-------+----------+-------------------+
++----------------------------------------------------------------------------------------------+
+; Source assignments for ROM:U1|altsyncram:altsyncram_component|altsyncram_3v61:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------+
+; Assignment                      ; Value              ; From ; To                             ;
++---------------------------------+--------------------+------+--------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                              ;
++---------------------------------+--------------------+------+--------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ROM:U1|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------+
+; Parameter Name                     ; Value                ; Type                    ;
++------------------------------------+----------------------+-------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                 ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY              ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY            ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE            ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE          ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                 ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                 ;
+; WIDTH_A                            ; 10                   ; Signed Integer          ;
+; WIDTHAD_A                          ; 7                    ; Signed Integer          ;
+; NUMWORDS_A                         ; 128                  ; Signed Integer          ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                 ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                 ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                 ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                 ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                 ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                 ;
+; WIDTH_B                            ; 1                    ; Untyped                 ;
+; WIDTHAD_B                          ; 1                    ; Untyped                 ;
+; NUMWORDS_B                         ; 1                    ; Untyped                 ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                 ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                 ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                 ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                 ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                 ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                 ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                 ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                 ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                 ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                 ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                 ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                 ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer          ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                 ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                 ;
+; BYTE_SIZE                          ; 8                    ; Untyped                 ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                 ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                 ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                 ;
+; INIT_FILE                          ; ../MIF.mif           ; Untyped                 ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                 ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                 ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                 ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                 ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                 ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                 ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                 ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                 ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                 ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                 ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                 ;
+; CBXI_PARAMETER                     ; altsyncram_3v61      ; Untyped                 ;
++------------------------------------+----------------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                   ;
++-------------------------------------------+----------------------------------------+
+; Name                                      ; Value                                  ;
++-------------------------------------------+----------------------------------------+
+; Number of entity instances                ; 1                                      ;
+; Entity Instance                           ; ROM:U1|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                    ;
+;     -- WIDTH_A                            ; 10                                     ;
+;     -- NUMWORDS_A                         ; 128                                    ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                 ;
+;     -- WIDTH_B                            ; 1                                      ;
+;     -- NUMWORDS_B                         ; 1                                      ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                 ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                           ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                   ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                              ;
++-------------------------------------------+----------------------------------------+
 
 
 +-------------------------------+
@@ -306,34 +414,67 @@ Encoding Type:  One-Hot
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 32-bit Analysis & Synthesis
+Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Sep  6 19:00:40 2018
+    Info: Processing started: Sat Oct 20 20:25:00 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off display -c display
 Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
+    Info (12022): Found design unit 1: rom-SYN
+    Info (12023): Found entity 1: ROM
 Info (12021): Found 2 design units, including 1 entities, in source file lcd_controller.vhd
     Info (12022): Found design unit 1: lcd_controller-controller
     Info (12023): Found entity 1: lcd_controller
 Info (12021): Found 2 design units, including 1 entities, in source file lcd_example.vhd
     Info (12022): Found design unit 1: lcd_example-behavior
     Info (12023): Found entity 1: lcd_example
+Info (12021): Found 2 design units, including 1 entities, in source file contador.vhd
+    Info (12022): Found design unit 1: contador-behavior
+    Info (12023): Found entity 1: contador
 Info (12127): Elaborating entity "lcd_example" for the top level hierarchy
-Info (12128): Elaborating entity "lcd_controller" for hierarchy "lcd_controller:dut"
+Info (12128): Elaborating entity "lcd_controller" for hierarchy "lcd_controller:U0"
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:U1"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "ROM:U1|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "ROM:U1|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "ROM:U1|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "../MIF.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone II"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "128"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "widthad_a" = "7"
+    Info (12134): Parameter "width_a" = "10"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_3v61.tdf
+    Info (12023): Found entity 1: altsyncram_3v61
+Info (12128): Elaborating entity "altsyncram_3v61" for hierarchy "ROM:U1|altsyncram:altsyncram_component|altsyncram_3v61:auto_generated"
+Info (12128): Elaborating entity "contador" for hierarchy "contador:U2"
+Warning (10492): VHDL Process Statement warning at contador.vhd(23): signal "EN" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at contador.vhd(32): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at contador.vhd(36): signal "start" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at contador.vhd(21): inferring latch(es) for signal or variable "EN", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "EN" at contador.vhd(21)
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "rw" is stuck at GND
     Warning (13410): Pin "lcd_on" is stuck at VCC
     Warning (13410): Pin "lcd_blon" is stuck at VCC
-    Warning (13410): Pin "lcd_data[7]" is stuck at GND
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 256 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
+Info (21057): Implemented 238 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
     Info (21059): Implemented 13 output pins
-    Info (21061): Implemented 242 logic cells
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 358 megabytes
-    Info: Processing ended: Thu Sep  6 19:00:44 2018
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info (21061): Implemented 212 logic cells
+    Info (21064): Implemented 10 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 8 warnings
+    Info: Peak virtual memory: 4683 megabytes
+    Info: Processing ended: Sat Oct 20 20:25:03 2018
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

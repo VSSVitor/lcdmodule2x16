@@ -1,42 +1,23 @@
---------------------------------------------------------------------------------
---
---   FileName:         lcd_example.vhd
---   Dependencies:     none
---   Design Software:  Quartus II 32-bit Version 11.1 Build 173 SJ Full Version
---
---   HDL CODE IS PROVIDED "AS IS."  DIGI-KEY EXPRESSLY DISCLAIMS ANY
---   WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT
---   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
---   PARTICULAR PURPOSE, OR NON-INFRINGEMENT. IN NO EVENT SHALL DIGI-KEY
---   BE LIABLE FOR ANY INCIDENTAL, SPECIAL, INDIRECT OR CONSEQUENTIAL
---   DAMAGES, LOST PROFITS OR LOST DATA, HARM TO YOUR EQUIPMENT, COST OF
---   PROCUREMENT OF SUBSTITUTE GOODS, TECHNOLOGY OR SERVICES, ANY CLAIMS
---   BY THIRD PARTIES (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF),
---   ANY CLAIMS FOR INDEMNITY OR CONTRIBUTION, OR OTHER SIMILAR COSTS.
---
---   Version History
---   Version 1.0 6/13/2012 Scott Larson
---     Initial Public Release
---
---   Prints "123456789" on a HD44780 compatible 8-bit interface character LCD 
---   module using the lcd_controller.vhd component.
---
---------------------------------------------------------------------------------
-
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
 
 ENTITY lcd_example IS
   PORT(
       clk       : IN  STD_LOGIC;  --system clock
+		reset     : IN  STD_LOGIC;
+		start     : IN  STD_LOGIC;
       rw, rs, e, lcd_on, lcd_blon : OUT STD_LOGIC;  --read/write, setup/data, and enable for lcd
       lcd_data  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)); --data signals for lcd
 END lcd_example;
 
 ARCHITECTURE behavior OF lcd_example IS
-  SIGNAL   lcd_enable : STD_LOGIC;
-  SIGNAL   lcd_bus    : STD_LOGIC_VECTOR(9 DOWNTO 0);
-  SIGNAL   lcd_busy   : STD_LOGIC;
+  SIGNAL   lcd_enable : STD_LOGIC := '0';
+  SIGNAL   lcd_bus    : STD_LOGIC_VECTOR(9 DOWNTO 0):="0000000000";
+  SIGNAL   lcd_busy   : STD_LOGIC := '1';
+  SIGNAL   char       : INTEGER RANGE 0 TO 80 := 0;
+  SIGNAL   address    : STD_LOGIC_VECTOR(6 DOWNTO 0):="0000000";
+
   COMPONENT lcd_controller IS
     PORT(
        clk        : IN  STD_LOGIC; --system clock
@@ -47,75 +28,39 @@ ARCHITECTURE behavior OF lcd_example IS
        rw, rs, e  : OUT STD_LOGIC; --read/write, setup/data, and enable for lcd
        lcd_data   : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)); --data signals for lcd
   END COMPONENT;
+  
+  COMPONENT ROM IS
+	PORT
+	(
+		address	   : IN STD_LOGIC_VECTOR (6 DOWNTO 0);
+		clock		   : IN STD_LOGIC  := '1';
+		q	       	: OUT STD_LOGIC_VECTOR (9 DOWNTO 0));
+  END COMPONENT;
+  
+  COMPONENT contador IS
+  PORT(
+      clk        : IN  STD_LOGIC;  --system clock
+		reset      : IN  STD_LOGIC;
+		start      : IN  STD_LOGIC;
+		lcd_busy   : IN  STD_LOGIC;
+		lcd_enable : OUT STD_LOGIC; 
+      address    : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)); --data signals for lcd
+  END COMPONENT;
+  
+  
 BEGIN
 
   --instantiate the lcd controller
-  dut: lcd_controller
-    PORT MAP(clk => clk, reset_n => '1', lcd_enable => lcd_enable, lcd_bus => lcd_bus, 
+  U0: lcd_controller
+    PORT MAP(clk => clk, reset_n => reset, lcd_enable => lcd_enable, lcd_bus => lcd_bus, 
              busy => lcd_busy, rw => rw, rs => rs, e => e, lcd_data => lcd_data);
   
-  PROCESS(clk)
-    VARIABLE char  :  INTEGER RANGE 0 TO 46 := 0;
-  BEGIN
-    IF(clk'EVENT AND clk = '1') THEN
-      IF(lcd_busy = '0' AND lcd_enable = '0') THEN
-        lcd_enable <= '1';
-        IF(char < 46) THEN
-          char := char + 1;
-        END IF;
-        CASE char IS
-          WHEN 1 => lcd_bus <= "1001000101";
-          WHEN 2 => lcd_bus <= "1001000111";
-          WHEN 3 => lcd_bus <= "1001001101";
-          WHEN 4 => lcd_bus <= "1000110000";
-          WHEN 5 => lcd_bus <= "1000110000";
-          WHEN 6 => lcd_bus <= "1000110001";
-          WHEN 7 => lcd_bus <= "1000111000";
-          WHEN 8 => lcd_bus <= "1000100000";
-          WHEN 9 => lcd_bus <= "1000100000";
-			 WHEN 10 => lcd_bus <= "1000100000";
-			 WHEN 11 => lcd_bus <= "1000100000";
-			 WHEN 12 => lcd_bus <= "1000100000";
-			 WHEN 13 => lcd_bus <= "1000100000";
-			 WHEN 14 => lcd_bus <= "1000100000";
-			 WHEN 15 => lcd_bus <= "1000100000";
-			 WHEN 16 => lcd_bus <= "1000100000";
-			 WHEN 17 => lcd_bus <= "1001010110";
-			 WHEN 18 => lcd_bus <= "1001101001";
-			 WHEN 19 => lcd_bus <= "1001110100";
-			 WHEN 20 => lcd_bus <= "1001101111";
-			 WHEN 21 => lcd_bus <= "1001110010";
-			 WHEN 22 => lcd_bus <= "1000100001";
-			 WHEN 23 => lcd_bus <= "1000100001";
-			 WHEN 24 => lcd_bus <= "1000100001";
-			 WHEN 25 => lcd_bus <= "1000100001";
-			 WHEN 26 => lcd_bus <= "1000100001";
-			 WHEN 27 => lcd_bus <= "1000100001";
-			 WHEN 28 => lcd_bus <= "1000100001";
-			 WHEN 29 => lcd_bus <= "1000100001";
-			 WHEN 30 => lcd_bus <= "1001101111";
-			 WHEN 31 => lcd_bus <= "1001110010";
-			 WHEN 32 => lcd_bus <= "1000100001";
-			 WHEN 33 => lcd_bus <= "1000100001";
-			 WHEN 34 => lcd_bus <= "1000100001";
-			 WHEN 35 => lcd_bus <= "1000100001";
-			 WHEN 36 => lcd_bus <= "1000100001";
-			 WHEN 37 => lcd_bus <= "1000100001";
-			 WHEN 38 => lcd_bus <= "1000100001";
-			 WHEN 39 => lcd_bus <= "1000100001";
-			 WHEN 40 => lcd_bus <= "1001101111";
-			 WHEN 41 => lcd_bus <= "1001010110";
-			 WHEN 42 => lcd_bus <= "1001101001";
-			 WHEN 43 => lcd_bus <= "1001110100";
-			 WHEN 44 => lcd_bus <= "1001101111";
-			 WHEN 45 => lcd_bus <= "1001110010";
-          WHEN OTHERS => lcd_enable <= '0';
-        END CASE;
-      ELSE
-        lcd_enable <= '0';
-      END IF;
-    END IF;
-  END PROCESS;
+  U1: ROM
+    PORT MAP(address => address, clock => clk, q => lcd_bus);
+  
+  U2: contador
+    PORT MAP(clk => clk, reset => reset, start => start, lcd_busy => lcd_busy, lcd_enable => lcd_enable,
+				 address => address);
   
   lcd_on <= '1';
   lcd_blon <= '1';
