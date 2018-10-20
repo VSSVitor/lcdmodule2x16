@@ -1,0 +1,7 @@
+
+State Machine - |lcd_example|lcd_controller:dut|state
+Name state.send state.ready state.initialize state.power_up 
+state.power_up 0 0 0 0 
+state.initialize 0 0 1 1 
+state.ready 0 1 0 1 
+state.send 1 0 0 1 
